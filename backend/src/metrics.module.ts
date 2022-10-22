@@ -1,4 +1,5 @@
 import express from "express";
+import { Session } from "./session.model";
 import { random } from "./utils";
 
 export const metricsRouter = express.Router();
@@ -15,12 +16,13 @@ metricsRouter.get("/:user", async (req, res) => {
     // if metrics don't exist yet, let's initialize it
     if (!metrics[userName]) {
         // simulate initialization of metric (aka talking to the apple watch)
-        metrics[userName] = 60;
+        const sessions = await Session.find({ userId: userName }).sort({ timestamp: -1 }).limit(1).exec();
+        metrics[userName] = sessions.length < 1 ? 60 : sessions[0].baseline;
     } else {
         // simulate heartrate either increasing or decreasing
-        const r = random(0, 4);
+        const r = random(0, 2);
         //console.log("random ", r);
-        const amount = r >= 2 ? r - 4.1 : r; 
+        const amount = r >= 1 ? r - 2 : r; 
         //console.log("amount ", amount);
         metrics[userName] = metrics[userName] + amount;
     }

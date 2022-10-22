@@ -8,8 +8,10 @@ const config = {
     baseURL: URL
 };
 
-const useData = (route, field) => {
-    const [data, setData] = useState([]);
+const useData = (route, field, init) => {
+    const [data, setData] = useState(init);
+
+    console.log(route);
 
     useEffect(() => {
         axios.get(route, config)
@@ -36,15 +38,19 @@ export const useMetrics = (user) => {
 }
 
 export const useUsers = () => {
-    return useData("/users", "users");
+    return useData("/users", "users", []);
 }
 
 export const useSessions = () => {
-    return useData("/sessions", "sessions");
+    return useData("/sessions", "sessions", []);
 }
 
 export const useEvents = () => {
-    return useData("/events", "events");
+    return useData("/events", "events", []);
+}
+
+export const useBaseline = (user) => {
+    return useData(`/sessions/baseline/${user}`, "baseline", 0);
 }
 
 export async function createSession(userId, baseline, name, location, lighting, sound, notes) {

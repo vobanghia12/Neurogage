@@ -1,10 +1,11 @@
 import React from "react";
 import "./whole_page.css"
 import {MdOutlineVerifiedUser} from "react-icons/md";
-import { useMetrics } from "./hooks/api.hooks";
+import { useBaseline, useMetrics } from "./hooks/api.hooks";
 
 function CurrentUser(props){
-    const heartRate = useMetrics(props.name);
+    const heartRate = useMetrics(props.id);
+    const baseline = useBaseline(props.id);
 
     return (
         <article
@@ -12,10 +13,13 @@ function CurrentUser(props){
             display: "block",
             margin: "20px",
             padding: "10px",
-            borderRadius: "15px",
-            background: "#f0f0f0",
-            color: "black",
-            boxShadow: "0 3px 6px 0 #f0f0f0, 0 6px 10px 0 #f0f0f0",
+            borderRadius: "2px",
+            background: "rgb(40,40,40)",
+            color: "yellow",
+            // boxShadow: "0 3px 6px 0 rgb(40,40,40), 0 6px 10px 0 rgb(40,40,40)",
+            borderColor: "rgb(90,90,90)",
+            borderWidth: 1,
+            borderStyle: "solid",
             width: "200px",
             height: "200px"
           }}
@@ -23,12 +27,12 @@ function CurrentUser(props){
         
             <h4>{props.name}</h4>
             <p>{props.isOnline}</p>
-            <p>{heartRate}</p>
-            <p>Base Line</p>
-            {heartRate > 80 ? 
+            <p>Heart Rate: {heartRate}</p>
+            <p>Base Line: {baseline}</p>
+            {(heartRate - baseline > 10) ? 
               <p className = "p10"> Melt down <MdOutlineVerifiedUser/></p>
               :
-              <p style={{ color: "black" }}> Normal </p>
+              <p style={{ color: "yellow" }}> Normal </p>
             }
         </article>
       );

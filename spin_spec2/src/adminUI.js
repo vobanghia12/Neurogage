@@ -1,24 +1,25 @@
-import "./overall-layout.css"
 import CurrentUser from "./currentUser";
-import { useUsers, useSessions, useEvents} from "./hooks/api.hooks";
+import { useUsers } from "./hooks/api.hooks";
+
 function AdminUI(){
     const users = useUsers();
-    const sessions = useSessions();
-    const event = useEvents()
-
     return (
-    <div class = "overall">
-        {users.map((user,i) => {
-            return (
-                <CurrentUser 
-                    key={i}
-                    name={user.name}
-                />
-            );
-        })}
-    </div>
-  
-
+        <>
+            <h1 className="dashboard-title">
+                Vitals Viewer
+            </h1>
+            <div className = "overall">
+                {users.map((user,i) => {
+                    return (
+                        <CurrentUser 
+                            key={i}
+                            id={user._id}
+                            name={user.name}
+                        />
+                    );
+                })}
+            </div>
+        </>
     );
 }
 export default AdminUI
