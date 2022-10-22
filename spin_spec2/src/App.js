@@ -8,7 +8,6 @@ function App() {
     <div className = "common-background">
       <AdminUI></AdminUI>
     </div>
-    
   );
 }
 

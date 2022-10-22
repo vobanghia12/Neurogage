@@ -1,14 +1,15 @@
 import CurrentUser from "./currentUser";
 import { useUsers, useSessions, useEvents } from "./hooks/api.hooks";
 import  CurrentEvent from "./events.js";
+
 function AdminUI(){
     const users = useUsers();
-    const sessions = useSessions();
     const events = useEvents();
+
     return (
-        <>
+        <div className = "admin-ui">
             <h1 className="dashboard-title">
-                Vitals Viewer 22233
+                Vitals Viewer
             </h1>
             <div className = "overall">
                 {users.map((user,i) => {
@@ -21,14 +22,15 @@ function AdminUI(){
                     );
                 })}
             </div>
-            <div class = "overall">{
-            events.map((u, i) => {
+            <h1 className="dashboard-title">
+                Events Viewer
+            </h1>
+            {events.map((u, i) => {
                 return (
                     <CurrentEvent key ={i} timestamp = {u.timeStamp} description = {u.description} />
                 )
-            })
-        }</div>
-        </>
+            })}
+        </div>
     );
 }
 export default AdminUI
