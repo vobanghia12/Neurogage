@@ -61,3 +61,35 @@ a{
   height: 8vh;
   background: rgb(0, 48, 126);
 }
+
+.common-background{
+  margin-top: -10px;
+}
+
+.dashboard-title {
+  color: yellow;
+  margin-top: 80px;
+  padding-left: 80px;
+  margin-bottom: 80px;
+}
+
+.overall{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+h2 {
+  text-align: center;
+}
+h4{
+  text-align: center;
+}
+p{
+  text-align: center;
+}
+
+.admin-ui {
+  margin-bottom: 200px;
+}
