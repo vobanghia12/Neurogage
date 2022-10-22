@@ -13,10 +13,21 @@ interface ICreateEvent {
     description: string;
 }
 
-
+//retrieve all events
 eventRouter.get("/", async (req, res) => {
     try {
         const events = await Event.find().exec();
+        res.json({ events });
+    } catch (error) {
+        console.log("could not query all events from db")
+    }
+});
+
+//retrieve events by userId
+eventRouter.get("/", async (req, res) => {
+    const userId = req.body();
+    try {
+        const events = await Event.find({userId:userId}).exec();
         res.json({ events });
     } catch (error) {
         console.log("could not query all events from db")
@@ -27,20 +38,16 @@ eventRouter.get("/", async (req, res) => {
 eventRouter.post("/event", async (req, res) => {
     try {
         const { userId, eventId, description } = req.body as ICreateEvent;
-    const newData = new Event({
-        userId,
-        eventId,
-        description
-    })
+        const newData = new Event({
+            userId,
+            eventId,
+            description
+        })
 
-    newData.save();
+        newData.save();
     } catch (error) {
         console.log("couldnt ")
         console.log(error);
     }
 
 });
-
-function handleError(err: any) {
-    throw new Error("Function not implemented.");
-}
