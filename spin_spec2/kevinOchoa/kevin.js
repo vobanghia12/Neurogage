@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import "./session.css";
 
 function App() { 
 
@@ -30,8 +31,9 @@ function App() {
   }
 
   return (
+    <body>
       <form onSubmit = {handleSubmit}>
-        <h1>This is the session</h1>
+        <h1>Spin The Spectrum</h1>
         <h2>What is the session name?</h2>
         <input type = 'text' placeholder = 'Benjamin Franklin Middle School' name = 'sessionName' onChange = {handleInput}/>
         <h2>What is today's date?</h2>
@@ -39,14 +41,16 @@ function App() {
         <h2>What is the location or environment?</h2>
         <input type = "text" placeholder = 'Classroom' name = 'sessionLocation' onChange = {handleInput}/>
         <h2>How is the lighting in the environment?</h2>
-        <textarea placeholder='Very bright' name = 'sessionLighting' onChange = {handleInput}></textarea>
+        <textarea placeholder='The lights are very bright' name = 'sessionLighting' onChange = {handleInput}></textarea>
         <h2>What is the sound like in the environment?</h2>
         <textarea placeholder='Today the music will be loud' name = 'sessionSound' onChange = {handleInput}></textarea>
         <h2>Additional environment notes?</h2>
         <textarea placeholder='The room smells like cleaning products' name = 'additionalSessionNotes' onChange = {handleInput}></textarea>
         <br></br>
-        <button type = 'submit'>Submit</button>
+        <button class = "btn" type = 'submit'>Submit</button>
       </form>
+    </body>
+      
   );
 }
 
