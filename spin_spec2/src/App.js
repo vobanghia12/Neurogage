@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import AdminUI from './adminUI'; 
 import './app12.css';
-function App() {
+
 import { useUsers, useSessions, useEvents, useMetrics } from './hooks/api.hooks';
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
 
   return (
     <div class = "common-background">
-      <h1>Dashboard</h1>
+      <h1>Dashboard12</h1>
       <AdminUI></AdminUI>
     </div>
     

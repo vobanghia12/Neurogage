@@ -2,7 +2,6 @@ import express from "express";
 import { Event } from "./event.model";
 import {Types} from 'mongoose';
 
-
 export const eventRouter = express.Router();
 
 interface ICreateEvent {
