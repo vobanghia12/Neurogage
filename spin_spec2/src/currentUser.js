@@ -21,7 +21,8 @@ function CurrentUser(props){
             borderWidth: 1,
             borderStyle: "solid",
             width: "200px",
-            height: "200px"
+            height: "200px",
+            borderRadius: "40px",
           }}
         >
         
