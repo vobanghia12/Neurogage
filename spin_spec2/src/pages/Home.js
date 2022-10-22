@@ -2,6 +2,7 @@ import "../app12.css";
 import { useNavigate } from "react-router-dom";
 import React from "react";
 import Header from "../components/Header";
+import {Video} from "../video";
 
 export default function Home() {
     let navigate = useNavigate();

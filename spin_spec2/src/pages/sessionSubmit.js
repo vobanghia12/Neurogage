@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { createSession, createEvent } from "../hooks/api.hooks";
 import Header from "../components/Header";
+import {Video} from "../video";
 
 export default function SessionSubmit() { 
 
@@ -67,7 +68,9 @@ export default function SessionSubmit() {
           <>
             {helpMessage === null ?
                 <>
-                  <h2 style={{ fontSize: 50 }}> Click for help.</h2>
+                  <h2 style={{ fontSize: 30 }}> Try Out Facial Monitoring!</h2>
+                  <Video userId={userId}/>
+                  <h2 style={{ fontSize: 30 }}> Click for help!</h2>
                   <button 
                     className="large-button" 
                     onClick={() => {

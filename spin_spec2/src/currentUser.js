@@ -1,7 +1,7 @@
 import React from "react";
 import "./whole_page.css"
 import {MdOutlineVerifiedUser} from "react-icons/md";
-import { useBaseline, useMetrics } from "./hooks/api.hooks";
+import {useBaseline, useEmotions, useMetrics} from "./hooks/api.hooks";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -41,6 +41,9 @@ export const options = {
 function CurrentUser(props){
     const { heartRate, rates } = useMetrics(props.id);
     const baseline = useBaseline(props.id);
+
+    const emotions = useEmotions(props.id);
+
     const data2 = {
       labels,
       datasets: [
@@ -53,6 +56,13 @@ function CurrentUser(props){
       ]
     };
     console.log(rates)
+
+    const emotionsArray = [];
+    for (const [key, value] of Object.entries(emotions)) {
+        console.log({ emotion: key, value });
+        emotionsArray.push({ emotion: key, value });
+    }
+    console.log(emotionsArray)
     
     return (
         <article 
@@ -81,8 +91,13 @@ function CurrentUser(props){
               :
               <p style={{ color: "yellow" }}> Normal </p>
             }
-         
-
+            {emotionsArray.map((pair, i) => {
+                return (
+                    <div key={i}>
+                        { pair.emotion } : { Math.round(pair.value * 100 * 10000) / 10000}%
+                    </div>
+                );
+            })}
          <Line options={options} data = {data2} ></Line>
         </article>
       );

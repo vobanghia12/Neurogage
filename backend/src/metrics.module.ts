@@ -6,6 +6,7 @@ export const metricsRouter = express.Router();
 
 // map structure to store metrics
 const metrics: {[key:string]: number} = {};
+const emotionMetrics: {[key:string]: any} = {};
 
 // Route to get the current heartrate for the user
 /* Proof of concept implementation: we store the last heartrate in a global map and reduce/increase by 1 every time
@@ -28,3 +29,21 @@ metricsRouter.get("/:user", async (req, res) => {
     }
     res.json({ heartRate: Math.round(metrics[userName] * 100) / 100 });
 });
+
+interface EmotionsPayload {
+    emotions: any;
+}
+
+metricsRouter.post("/emotions/:user", async (req, res) => {
+    const userName = req.params.user;
+    const { emotions } = req.body as EmotionsPayload;
+    emotionMetrics[userName] = emotions;
+    res.json({ msg: "I worked" });
+});
+
+metricsRouter.get("/emotions/:user", async (req, res) => {
+    const userName = req.params.user;
+    const emotions = emotionMetrics[userName];
+    res.json({ emotions });
+});
+
