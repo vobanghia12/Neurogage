@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import AdminUI from './adminUI'; 
 import './app12.css';
-function App() {
+
 import { useUsers, useSessions, useEvents, useMetrics } from './hooks/api.hooks';
 
 function App() {
