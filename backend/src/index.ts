@@ -30,6 +30,7 @@ mongoose.connect(CONNECTION_STRING)
     .then(() => console.log("Connected to db"))
     .catch((e) => console.log(e));
 
+    
 app.use("/metrics", metricsRouter);
 app.use("/users", userRouter);
 app.use("/events", eventRouter);

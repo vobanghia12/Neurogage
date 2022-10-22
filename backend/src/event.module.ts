@@ -14,7 +14,7 @@ interface ICreateEvent {
 //retrieve all events
 eventRouter.get("/", async (req, res) => {
     try {
-        const events = await Event.find().sort({ timeStamp: -1 }).exec();
+        const events = await Event.find().sort({  timeStamp: -1 }).exec();
         res.json({ events });
     } catch (error) {
         console.log("could not query all events from db")
@@ -26,6 +26,17 @@ eventRouter.get("/:userId", async (req, res) => {
     const userId = req.params.userId;
     try {
         const events = await Event.find({userId:userId}).sort({ timeStamp: -1 }).exec();
+        res.json({ events });
+    } catch (error) {
+        console.log("could not query all events from db")
+    }
+});
+
+//retrieve events by eventId
+eventRouter.get("/:eventId", async (req, res) => {
+    const eventId = req.params.eventId;
+    try {
+        const events = await Event.find({eventId:eventId}).sort({ timeStamp: -1 }).exec();
         res.json({ events });
     } catch (error) {
         console.log("could not query all events from db")
