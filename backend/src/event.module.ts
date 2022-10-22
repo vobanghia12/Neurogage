@@ -45,6 +45,9 @@ eventRouter.get("/:eventId", async (req, res) => {
 
 //creates and pushed object
 eventRouter.post("/", async (req, res) => {
+
+    console.log("Here!");
+
     try {
         const { userId, description } = req.body as ICreateEvent;
         const event = new Event({

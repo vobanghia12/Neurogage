@@ -46,7 +46,18 @@ export const useSessions = () => {
 }
 
 export const useEvents = () => {
-    return useData("/events", "events", []);
+    const [events, setEvents] = useState([]);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            axios.get("/events", config)
+                .then((r) => setEvents(r.data.events));
+        }, 1000);
+
+        return () => clearInterval(interval);
+    }, []);
+
+    return events;
 }
 
 export const useBaseline = (user) => {
@@ -57,6 +68,6 @@ export async function createSession(userName, baseline, name, location, lighting
     return axios.post("/sessions", { userName, baseline, name, location, lighting, sound, notes }, config);
 }
 
-export async function createEvent(userId, eventId, description) {
-    return axios.post("/sessions", { userId, eventId, description }, config);
+export async function createEvent(userId, description) {
+    return axios.post("/events", { userId, description }, config);
 }

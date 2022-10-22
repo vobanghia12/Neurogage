@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
-import { createSession } from "../hooks/api.hooks";
+import { createSession, createEvent } from "./hooks/api.hooks";
 
 export default function SessionSubmit() { 
 
   const [userId, setUserId] = useState(null);
+
+  const [helpMessage, setHelpMessage] = useState(null);
 
   // Passing in an object to store each input field from the form.
   const [input, setInput] = useState({
@@ -63,7 +65,45 @@ export default function SessionSubmit() {
           </form>
           :
           <>
-            
+            {helpMessage === null ?
+                <>
+                  <h2 style={{ color: "white" }}> Click for help.</h2>
+                  <button 
+                    className="large-button" 
+                    onClick={() => {
+                      createEvent(userId, "Experiencing visual overflow");
+                      setHelpMessage("qwerqwer");
+                    }}
+                  >
+                    Too much light
+                  </button>
+                  <button 
+                    className="large-button" 
+                    onClick={() => {
+                      createEvent(userId, "Experiencing auditory overflow")
+                      setHelpMessage("qwerqwerqwerqwer");
+                    }}
+                  >
+                    Too much sound
+                  </button>
+                  <button 
+                    className="large-button" 
+                    onClick={() => {
+                      createEvent(userId, "Experiencing information overflow")
+                      setHelpMessage("qwerqwerqwerqwerqwer");
+                    }}
+                  >
+                    Too information
+                  </button>
+                </>
+                :
+                <>
+                  <h2 style={{ color: "white" }}>
+                    { helpMessage }
+                  </h2>
+                </>
+            }
+           
           </>
       }
     </>
