@@ -10,7 +10,7 @@ function Admin(){
     return (
         <div className = "admin">
             <h1 className="dashboard-title">
-                Vitals Viewer 2
+                Vitals Viewer
             </h1>
             <div className = "overall">
                 {users.map((user,i) => {
