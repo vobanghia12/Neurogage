@@ -4,6 +4,7 @@ import { metricsRouter } from "./metrics.module";
 import { userRouter } from "./user.module";
 import { eventRouter } from "./event.module";
 import { sessionRouter } from "./session.module";
+import { oauthRouter } from "./oauth.module";
 import cors from "cors";
 import dotenv from "dotenv";
 
@@ -34,7 +35,8 @@ mongoose.connect(CONNECTION_STRING)
 app.use("/metrics", metricsRouter);
 app.use("/users", userRouter);
 app.use("/events", eventRouter);
-app.use("/sessions", sessionRouter)
+app.use("/sessions", sessionRouter);
+app.use("/oauth", oauthRouter);
 
 app.get("/", (req, res) => res.json({ test: "Hello World" }));
 
