@@ -1,5 +1,6 @@
 import express from "express";
 import {Oauth} from "./oauth.model";
+import bcrypt, { hash } from "bcrypt";
 
 interface ICreateOauth {
     username: string;
@@ -8,32 +9,35 @@ interface ICreateOauth {
 
 export const oauthRouter = express.Router();
 
-oauthRouter.get("/:username", async (req, res) => {
-    const username = req.params.username;
+oauthRouter.get("/signin", async (req, res) => {
+    const { username, password} = req.body as ICreateOauth;
     try {
         const usernames = await Oauth.find({username:username}).exec();
-        res.json({ usernames });
+
+        const hashedPassword = await hash(password, usernames[0].salt);
+
+        if (hashedPassword === usernames[0].password) {
+            res.json({ message: "Login successful" });
+        } else {
+            res.json({ message: "No sign in" });
+        }
+        
     } catch (error) {
         console.log("could not query usernames from db")
     }
 });
 
-oauthRouter.get("/:password", async (req, res) => {
-    const password = req.params.password;
-    try {
-        const passwords = await Oauth.find({password:password}).exec();
-        res.json({ passwords });
-    } catch (error) {
-        console.log("could not query passwords from db")
-    }
-});
-
-oauthRouter.post("/", async (req, res) => {
+oauthRouter.post("/signup", async (req, res) => {
     const { username, password} = req.body as ICreateOauth;
+
+    const salt = await bcrypt.genSalt(10);
+
+    const hashedPassword = await hash(password, salt);
     
     const userCredentials = new Oauth({
         username,
-        password
+        password: hashedPassword,
+        salt
     });
 
     userCredentials.save((err) => {
@@ -41,7 +45,7 @@ oauthRouter.post("/", async (req, res) => {
             console.log(err);
             res.json({ message: "Error creating the userCredentials" })
         } else {
-            res.json({ userCredentials });
+            res.json({ message: "Signup successful" });
         }
     })
 });
