@@ -10,7 +10,7 @@ import Home from "./pages/Home";
 import Admin from "./pages/Admin";
 import User from "./pages/User";
 import NoPage from "./pages/NoPage";
-import SessionSubmit from ""
+import SessionSubmit from "./pages/sessionSubmit"
 import "./app12.css";
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
       <Routes>
           <Route path="admin" element={<Admin />} />
           <Route path="user" element={<User />} />
-          {/* <Route path="AdminInput" element={<AdminInput />} /> */}
+          <Route path="sessionSubmit" element={<SessionSubmit />} />
           <Route path="*" element={<NoPage />} />
           <Route path="/" element={<Home />} />
       </Routes>
