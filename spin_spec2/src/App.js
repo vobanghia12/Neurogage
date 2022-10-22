@@ -10,7 +10,7 @@ import Home from "./pages/Home";
 import Admin from "./pages/Admin";
 import User from "./pages/User";
 import NoPage from "./pages/NoPage";
-import AdminInput from "../kevinOchoa/kevin"
+import AdminInput from "./kevinOchoa/kevin"
 import "./app12.css";
 
 function App() {
