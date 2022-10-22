@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import { useNavigate } from "react-router-dom";
-import "/loginUI.css";
+import "../";
 
-function login() { 
+export default function Login() { 
   //navigate to main admin page after input form submitted
   let navigate = useNavigate();
-  function handleAdmin(){
+  function handleAdm(){
     navigate("/Login");
   }
 
@@ -30,14 +30,13 @@ function login() {
   */
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleAdmin
     console.log(input);
   }
 
 
   return (
     <body>
-      <form onSubmit = {handleSubmit}>
+      <form onSubmit = {(handleAdm)}>
         <h1>Admin Login</h1>
         <h2>Username</h2>
         <input type = 'text' name = 'userName' onChange = {handleInput}/>
@@ -52,4 +51,4 @@ function login() {
   );
 }
 
-export default login;
+
