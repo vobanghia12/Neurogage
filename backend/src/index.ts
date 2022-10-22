@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import { metricsRouter } from "./metrics.module";
+import { userRouter } from "./user.module";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -20,6 +21,7 @@ mongoose.connect(CONNECTION_STRING)
     .catch((e) => console.log(e));
 
 app.use("/metrics", metricsRouter);
+app.use("/users", userRouter);
 
 app.get("/", (req, res) => res.json({ test: "Hello World" }));
 

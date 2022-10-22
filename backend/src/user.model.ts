@@ -2,23 +2,24 @@ import { Schema, model } from 'mongoose';
 
 interface ISession {
     timestamp: string;
+    baseline: number;
     feedback: string;
 }
 
 interface IUser {
     name: string;
-    baseline: number;
+    
     isOnline: boolean;
     sessions: ISession[];
 }
   
 const userSchema = new Schema<IUser>({
     name: { type: String, required: true },
-    baseline: { type: Number, required: true },
     isOnline: { type: Boolean, required: true },
     sessions: [{
+        baseline: { type: Number, required: true },
         timestamp: { type: String, required: true },
-        feedback: { type: String, required: true }
+        feedback: { type: String, required: true },
     }]
 });
   
