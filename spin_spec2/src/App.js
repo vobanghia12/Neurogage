@@ -1,30 +1,25 @@
 import './App.css';
 import './app12.css';
 import './App.css';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import Admin from "./pages/Admin";
 import NoPage from "./pages/NoPage";
-import { SessionSubmit } from "./sessionSubmit";
+import SessionSubmit from "./pages/sessionSubmit"
 import "./app12.css";
 
 function App() {
 
   return (
-    <div className = "common-background">
-      <SessionSubmit />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />}>
-            </Route><Route path="/" element={<Home />}>
-            <Route index element={<Home />} />
-            <Route path="admin" element={<Admin />} />
-            <Route path="user" element={<SessionSubmit />} />
-            <Route path="*" element={<NoPage />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </div>
+      <Routes>
+          <Route path="/Admin" element={<Admin />} />
+          <Route path="/User" element={<User />} />
+          <Route path="/SessionSubmit" element={<SessionSubmit />} />
+          <Route path="*" element={<NoPage />} />
+          <Route path="/" element={<Home />} />
+      </Routes>
   );
 }
 

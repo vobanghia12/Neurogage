@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { createSession, createEvent } from "./hooks/api.hooks";
 
-export function SessionSubmit() { 
+export default function SessionSubmit() { 
 
   const [userId, setUserId] = useState(null);
 
