@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { useNavigate } from "react-router-dom";
 import "../loginUI.css";
 import {login} from "../hooks/api.hooks";
+import Header from "../components/Header";
 
 function Login() {
   //navigate to main admin page after input form submitted
@@ -43,6 +44,7 @@ function Login() {
 
   return (
     <body>
+      <Header/>
       <form onSubmit = {handleSubmit}>
         <h1>Admin Login</h1>
         <h2>Username</h2>

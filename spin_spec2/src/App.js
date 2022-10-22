@@ -9,6 +9,7 @@ import SessionSubmit from "./pages/sessionSubmit"
 import Login from "./pages/Login"
 import User from "./pages/User"
 import "./app12.css";
+import EmotionTracker from './pages/EmotionTracker';
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
           <Route path="/Login" element={<Login />} />
           <Route path="*" element={<NoPage />} />
           <Route path="/" element={<Home />} />
+          <Route path="/EmotionTracker" element={<EmotionTracker/>} />
       </Routes>
   );
 }
