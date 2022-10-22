@@ -1,8 +1,14 @@
 
 import SessionSubmit from "./sessionSubmit";
+import Header from "../components/Header";
 
 const User = () => {
-    return <SessionSubmit/>
+    return (
+        <>
+            <Header/>
+            <SessionSubmit/>
+        </>
+    )
 };
   
   export default User;

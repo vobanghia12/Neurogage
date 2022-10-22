@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { createSession, createEvent } from "../hooks/api.hooks";
+import Header from "../components/Header";
 
 export default function SessionSubmit() { 
 
