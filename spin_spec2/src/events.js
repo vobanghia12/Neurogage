@@ -38,10 +38,11 @@ function CurrentEvent(props){
             borderColor: "rgb(90,90,90)",
             borderWidth: 1,
             borderStyle: "solid",
+              fontSize: 16,
             color: "yellow",
             width: "80%",
             height: "150px",
-            borderRadius: "30px",
+            borderRadius: "4px",
           }}
         >
           <h2>{formatDate(date)}</h2>

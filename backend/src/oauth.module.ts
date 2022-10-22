@@ -19,7 +19,7 @@ oauthRouter.post("/signin", async (req, res) => {
         if (hashedPassword === usernames[0].password) {
             res.json({ message: "Login successful" });
         } else {
-            res.json({ message: "No sign in" });
+            res.status(400).json({ message: "No sign in" });
         }
         
     } catch (error) {
@@ -43,7 +43,7 @@ oauthRouter.post("/signup", async (req, res) => {
     userCredentials.save((err) => {
         if (err) {
             console.log(err);
-            res.json({ message: "Error creating the userCredentials" })
+            res.status(400).json({ message: "Error creating the userCredentials" })
         } else {
             res.json({ message: "Signup successful" });
         }

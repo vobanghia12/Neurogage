@@ -12,3 +12,35 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+button {
+  cursor: pointer;
+  outline: 0;
+  color: #fff;
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  display: inline-block;
+  font-weight: 400;
+  margin: 10px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  line-height: 1.5;
+  text-align: center;
+  border: 1px solid transparent;
+  padding: 10px 16px;
+  font-size: 25px;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+button:hover {
+  color: #fff !important;
+  background-color: #0b5ed7 !important;
+  border-color: #0a58ca !important;
+}
+
+.HelpMessage {
+  font-size: 130px;
+  width: 50%;
+  overflow-wrap: break-word;
+}

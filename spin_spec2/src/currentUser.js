@@ -19,9 +19,10 @@ function CurrentUser(props){
             borderColor: "rgb(90,90,90)",
             borderWidth: 1,
             borderStyle: "solid",
+              fontSize: 16,
             width: "200px",
             height: "200px",
-            borderRadius: "40px",
+            borderRadius: "4px",
           }}
         >
         

@@ -1,10 +1,9 @@
 /* General */
 body {
-    background: #b5cAD8;
+    /*background: #b5cAD8;*/
     margin: 0;
-    font-family: "Work Sans", sans-serif;
     font-size: 0.9rem;
-    color: #2F3061;
+    color:gold;
     text-align: center;   
 }
 h1 {
@@ -16,32 +15,22 @@ h2 {
     margin-bottom: 0;
 }
 
-/* Input fields */
-input[type = text] {
-    width: 25%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    margin-bottom: 20px;
-    box-sizing: border-box;
-    border-radius: 20px;
-    border: 3px solid #2F3061;
-} 
-
-/* submit button */
+ submit button
 .btn {
-    font-family: "Work Sans", sans-serif;
-    font-size: 1rem;
+    /*font-size: 1rem;*/
     color:#F7FFF7;
-    background: #2F3061;
+    font-size: 20px;
+    /*background: #2F3061;*/
+    background: rgb(150,150,150);
     text-decoration: none;
-    padding: 8px;
+    padding: 20px;
     border-radius: 20px;
     display: inline-block;
     margin-top: 15px;
     margin-bottom: 50px;
     margin: 6px;
-    width: 12%;
 }
 .btn:hover {
-    background: rgba(47, 48, 97, 80%);
+    cursor: pointer;
+    background: rgb(170,170,170);
 }

@@ -30,9 +30,12 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
     login(input.userName, input.Password)
-        .then(() => navigate("/Admin"))
+        .then((r) => {
+          console.log(r.data)
+          navigate("/Admin");
+        })
         .catch((e) => {
-          console.log(e)
+            console.log(e)
             setMsg("Login fail")
         });
     console.log(input);
@@ -43,13 +46,13 @@ function Login() {
       <form onSubmit = {handleSubmit}>
         <h1>Admin Login</h1>
         <h2>Username</h2>
-        <input type = 'text' name = 'userName' onChange = {handleInput}/>
+        <input className="inputs" type = 'text' name = 'userName' onChange = {handleInput}/>
         <h2>Password</h2>
-        <input type = 'text' name = 'Password' onChange = {handleInput}/>
+        <input className="inputs" name = 'Password' type="password" onChange = {handleInput}/>
         <br></br>
         <button className = "btn" type = 'submit'>Login</button>
-        <button className = "btn">Create an account</button>
-        <h2>
+        <button className = "btn">Register</button>
+        <h2 style={{ color: "gold"}}>
           {msg}
         </h2>
       </form>

@@ -18,7 +18,7 @@ import React from "react";
       <div className = "admin">
           <h1 className="dashboard-title">
               Welcome!
-              Are You a user or Admin
+              Are You a User or Admin?
           </h1>
           <h1 className="dashboard-title">
             <button

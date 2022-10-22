@@ -40,7 +40,6 @@ export default function SessionSubmit() {
       input.sessionSound, 
       input.additionalSessionNotes
     ).then(r => setUserId(r.data.session.userId));
-    console.log(input);
   }
 
   return (
@@ -49,30 +48,30 @@ export default function SessionSubmit() {
           <form className="form" onSubmit = {handleSubmit}>
             <h1>Start a session!</h1>
             <h2>Who is the session for?</h2>
-            <input className="input" type = 'text' placeholder = 'Jacob' name = 'userName' onChange = {handleInput}/>
+            <input className="inputs" type = 'text' placeholder = 'Jacob' name = 'userName' onChange = {handleInput}/>
             <h2>What is the session name?</h2>
-            <input className="input" type = 'text' placeholder = 'Benjamin Franklin Middle School' name = 'sessionName' onChange = {handleInput}/>
+            <input className="inputs" type = 'text' placeholder = 'Benjamin Franklin Middle School' name = 'sessionName' onChange = {handleInput}/>
             <h2>What is the location or environment?</h2>
-            <input className="input" type = "text" placeholder = 'Classroom' name = 'sessionLocation' onChange = {handleInput}/>
+            <input className="inputs" type = "text" placeholder = 'Classroom' name = 'sessionLocation' onChange = {handleInput}/>
             <h2>How is the lighting in the environment?</h2>
-            <textarea className="input" placeholder='Very bright' name = 'sessionLighting' onChange = {handleInput}></textarea>
+            <textarea className="inputs" placeholder='Very bright' name = 'sessionLighting' onChange = {handleInput}></textarea>
             <h2>What is the sound like in the environment?</h2>
-            <textarea className="input" placeholder='Today the music will be loud' name = 'sessionSound' onChange = {handleInput}></textarea>
+            <textarea className="inputs" placeholder='Today the music will be loud' name = 'sessionSound' onChange = {handleInput}></textarea>
             <h2>Additional environment notes?</h2>
-            <textarea className="input" placeholder='The room smells like cleaning products' name = 'additionalSessionNotes' onChange = {handleInput}></textarea>
+            <textarea className="inputs" placeholder='The room smells like cleaning products' name = 'additionalSessionNotes' onChange = {handleInput}></textarea>
             <br></br>
-            <button className="button" type = 'submit'>Submit</button>
+            <button type = 'submit'>Submit</button>
           </form>
           :
           <>
             {helpMessage === null ?
                 <>
-                  <h2 style={{ color: "white" }}> Click for help.</h2>
+                  <h2 style={{ fontSize: 50 }}> Click for help.</h2>
                   <button 
                     className="large-button" 
                     onClick={() => {
                       createEvent(userId, "Experiencing visual overflow");
-                      setHelpMessage("qwerqwer");
+                      setHelpMessage("Closing your eyes will help.");
                     }}
                   >
                     Too much light
@@ -81,7 +80,7 @@ export default function SessionSubmit() {
                     className="large-button" 
                     onClick={() => {
                       createEvent(userId, "Experiencing auditory overflow")
-                      setHelpMessage("qwerqwerqwerqwer");
+                      setHelpMessage("Try to imagine a quiet room.");
                     }}
                   >
                     Too much sound
@@ -90,7 +89,7 @@ export default function SessionSubmit() {
                     className="large-button" 
                     onClick={() => {
                       createEvent(userId, "Experiencing information overflow")
-                      setHelpMessage("qwerqwerqwerqwerqwer");
+                      setHelpMessage("If you're having a tough time, touch the area.");
                     }}
                   >
                     Too information
@@ -98,7 +97,7 @@ export default function SessionSubmit() {
                 </>
                 :
                 <>
-                  <h2 style={{ color: "white" }}>
+                  <h2 className="HelpMessage" style={{ color: "white" }}>
                     { helpMessage }
                   </h2>
                 </>
