@@ -30,3 +30,7 @@ export const useSessions = () => {
 export const useEvents = () => {
     return useData("/events", "events");
 }
+
+export async function createSession(userId, baseline, name, location, lighting, sound, notes) {
+    return axios.post("/sessions", { userId, baseline, name, location, lighting, sound, notes }, config);
+}
