@@ -58,8 +58,8 @@ sessionRouter.get("/baseline/:userid", async (req, res) => {
 });
 
 
-sessionRouter.get("/baseline/:userid", async (req, res) => {
-    const name= req.params.userid;
+sessionRouter.get("/baseline/:name", async (req, res) => {
+    const name= req.params.name;
 
     const names = await Session.find({name:name});
 
