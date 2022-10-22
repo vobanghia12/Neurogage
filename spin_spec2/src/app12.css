@@ -29,3 +29,30 @@ p{
 .admin-ui {
     margin-bottom: 200px;
 }
+
+.form {
+    color: yellow;
+    text-align: center;
+}
+
+.input {
+    color: white !important;
+    background-color: black;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.button {
+    border-radius: 10px;
+    font-size: 30px;
+    padding: 20px;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    color: white;
+    background-color: rgb(80,80,80);
+}
+
+.button:hover {
+    cursor: pointer;
+    background-color: rgb(120,120,120);
+}

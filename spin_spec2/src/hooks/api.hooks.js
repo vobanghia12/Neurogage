@@ -53,8 +53,8 @@ export const useBaseline = (user) => {
     return useData(`/sessions/baseline/${user}`, "baseline", 0);
 }
 
-export async function createSession(userId, baseline, name, location, lighting, sound, notes) {
-    return axios.post("/sessions", { userId, baseline, name, location, lighting, sound, notes }, config);
+export async function createSession(userName, baseline, name, location, lighting, sound, notes) {
+    return axios.post("/sessions", { userName, baseline, name, location, lighting, sound, notes }, config);
 }
 
 export async function createEvent(userId, eventId, description) {
