@@ -24,17 +24,21 @@ const useData = (route, field, init) => {
 // refetches the data every second
 export const useMetrics = (user) => {
     const [heartrate, setHeartrate] = useState(0);
+    const [rates, setRates] = useState([]);
 
     useEffect(() => {
         const interval = setInterval(() => {
             axios.get(`/metrics/${user}`, config)
-                .then((r) => setHeartrate(r.data.heartRate));
+                .then((r) => {
+                    setHeartrate(r.data.heartRate);
+                    setRates([...rates, r.data.heartRate]);
+                });
         }, 1000);
 
         return () => clearInterval(interval);
-    }, [user]);
+    }, [user, rates]);
 
-    return heartrate;
+    return { heartRate: heartrate, rates };
 }
 
 export const useUsers = () => {
