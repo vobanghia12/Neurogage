@@ -13,7 +13,6 @@ function CurrentUser(props){
             display: "block",
             margin: "20px",
             padding: "10px",
-            borderRadius: "2px",
             background: "rgb(40,40,40)",
             color: "yellow",
             // boxShadow: "0 3px 6px 0 rgb(40,40,40), 0 6px 10px 0 rgb(40,40,40)",

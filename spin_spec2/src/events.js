@@ -35,7 +35,6 @@ function CurrentEvent(props){
             marginBottom: "20px",
             padding: "10px",
             backgroundColor: "rgb(40,40,40)",
-            borderRadius: "2px",
             borderColor: "rgb(90,90,90)",
             borderWidth: 1,
             borderStyle: "solid",

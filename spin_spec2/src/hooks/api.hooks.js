@@ -71,3 +71,7 @@ export async function createSession(userName, baseline, name, location, lighting
 export async function createEvent(userId, description) {
     return axios.post("/events", { userId, description }, config);
 }
+
+export async function login(username, password) {
+    return axios.post("/oauth/signin", { username, password }, config);
+}

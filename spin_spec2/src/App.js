@@ -1,15 +1,14 @@
 import './App.css';
 import './app12.css';
 import './App.css';
-import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import Admin from "./pages/Admin";
 import NoPage from "./pages/NoPage";
 import SessionSubmit from "./pages/sessionSubmit"
 import Login from "./pages/login"
 import "./app12.css";
+import User from "./pages/User";
 
 function App() {
 

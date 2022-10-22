@@ -1,20 +1,19 @@
 import React, {useState} from 'react';
 import { useNavigate } from "react-router-dom";
-import "/loginUI.css";
+import "../loginUI.css";
+import {login} from "../hooks/api.hooks";
 
-function login() { 
+function Login() {
   //navigate to main admin page after input form submitted
   let navigate = useNavigate();
-  function handleAdmin(){
-    navigate("/Login");
-  }
-
 
   // Passing in an object to store each input field from the login UI.
   const [input, setInput] = useState({
     userName: "",
     Password: "",
   });
+
+  const [msg, setMsg] = useState("");
 
   // This function will be called on the username and password field.
   const handleInput = (e) => {
@@ -30,10 +29,14 @@ function login() {
   */
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleAdmin
+    login(input.userName, input.Password)
+        .then(() => navigate("/Admin"))
+        .catch((e) => {
+          console.log(e)
+            setMsg("Login fail")
+        });
     console.log(input);
   }
-
 
   return (
     <body>
@@ -44,12 +47,15 @@ function login() {
         <h2>Password</h2>
         <input type = 'text' name = 'Password' onChange = {handleInput}/>
         <br></br>
-        <button class = "btn" type = 'submit'>Login</button>
-        <button class = "btn" type = 'submit'>Create an account</button>
+        <button className = "btn" type = 'submit'>Login</button>
+        <button className = "btn">Create an account</button>
+        <h2>
+          {msg}
+        </h2>
       </form>
     </body>
       
   );
 }
 
-export default login;
+export default Login;

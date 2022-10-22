@@ -1,14 +1,6 @@
-import Navbar from "../components/Navbar";
 import "../app12.css";
-import { Outlet, Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import React, { useEffect } from "react";
-// const Home = () => {
-//     return <div>home please work<Navbar></Navbar></div>
-//   };
-  
-//   export default Home;
-  
+import React from "react";
 
   export default function Home() {
     let navigate = useNavigate();

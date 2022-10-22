@@ -1,5 +1,5 @@
 import CurrentUser from "../currentUser";
-import { useUsers, useSessions, useEvents } from "../hooks/api.hooks";
+import { useUsers, useEvents } from "../hooks/api.hooks";
 import  CurrentEvent from "../events.js";
 import "../app12.css";
 

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { createSession, createEvent } from "./hooks/api.hooks";
+import { createSession, createEvent } from "../hooks/api.hooks";
 
 export default function SessionSubmit() { 
 
