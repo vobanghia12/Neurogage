@@ -2,7 +2,8 @@ import React from "react";
 
 function Navbar() {
     return(
-        <nav className="nav">
+        <flex>
+            <nav className="nav">
             <a href="#" className="brand">Temp Name</a>
             <ul className="nav__menu">
                 <li className="nav__item"><a href="#" className="nav__link">Home</a></li>
@@ -16,6 +17,8 @@ function Navbar() {
                 <div className="Admin"></div>
             </div>
         </nav>
+        </flex>
+        
     );
 }
 export default Navbar;

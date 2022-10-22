@@ -10,6 +10,7 @@ import Home from "./pages/Home";
 import Admin from "./pages/Admin";
 import User from "./pages/User";
 import NoPage from "./pages/NoPage";
+import AdminInput from "../kevinOchoa/kevin"
 import "./app12.css";
 
 function App() {
@@ -19,10 +20,11 @@ function App() {
       <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />}>
-          </Route><Route path="/" element={<Layout />}>
+          </Route><Route path="/" element={<Home />}>
           <Route index element={<Home />} />
           <Route path="admin" element={<Admin />} />
           <Route path="user" element={<User />} />
+          <Route path="AdminInput" element={<AdminInput />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
