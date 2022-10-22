@@ -15,3 +15,4 @@ const userSchema = new Schema<IEvent>({
 });
   
 export const Event = model<IEvent>("events", userSchema);
+
