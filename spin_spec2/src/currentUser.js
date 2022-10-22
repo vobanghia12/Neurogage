@@ -2,13 +2,60 @@ import React from "react";
 import "./whole_page.css"
 import {MdOutlineVerifiedUser} from "react-icons/md";
 import { useBaseline, useMetrics } from "./hooks/api.hooks";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
+import { Line } from 'react-chartjs-2';
+import faker from 'faker';
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
+const labels = ["12:00:01","12:00:02", "12:00:03", "12:00:04", "12:00:05"];
+
+export const options = {
+  responsive: true,
+  plugins: {
+    legend: {
+      position: 'top',
+    },
+    title: {
+      display: true,
+    },
+  },
+};
+
 
 function CurrentUser(props){
-    const heartRate = useMetrics(props.id);
+    const { heartRate, rates } = useMetrics(props.id);
     const baseline = useBaseline(props.id);
-
+    const data2 = {
+      labels,
+      datasets: [
+        {
+          label: "Heart Rate",
+          data: rates,
+          borderColor: 'rgb(53, 162, 235)',
+          backgroundColor: 'rgba(53, 162, 235, 0.5)',
+        },
+      ]
+    };
+    console.log(rates)
+    
     return (
-        <article
+        <article 
           style={{
             display: "block",
             margin: "20px",
@@ -20,12 +67,11 @@ function CurrentUser(props){
             borderColor: "rgb(90,90,90)",
             borderWidth: 1,
             borderStyle: "solid",
-            width: "200px",
-            height: "200px",
+            width: "300px",
+            height: "450px",
             borderRadius: "40px",
           }}
         >
-        
             <h4>{props.name}</h4>
             <p>{props.isOnline}</p>
             <p>Heart Rate: {heartRate}</p>
@@ -35,6 +81,9 @@ function CurrentUser(props){
               :
               <p style={{ color: "yellow" }}> Normal </p>
             }
+         
+
+         <Line options={options} data = {data2} ></Line>
         </article>
       );
 }
