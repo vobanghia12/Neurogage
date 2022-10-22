@@ -9,6 +9,7 @@ import Admin from "./pages/Admin";
 import NoPage from "./pages/NoPage";
 import SessionSubmit from "./pages/sessionSubmit"
 import Login from "./pages/Login"
+import User from "./pages/User"
 import "./app12.css";
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
   return (
       <Routes>
           <Route path="/Admin" element={<Admin />} />
-          <Route path="/User" element={<NoPage />} />
+          <Route path="/User" element={<User />} />
           <Route path="/SessionSubmit" element={<SessionSubmit />} />
           <Route path="/Login" element={<Login />} />
           <Route path="*" element={<NoPage />} />

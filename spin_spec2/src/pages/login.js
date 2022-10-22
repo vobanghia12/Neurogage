@@ -6,7 +6,7 @@ export default function Login() {
   //navigate to main admin page after input form submitted
   let navigate = useNavigate();
   function handleAdm(){
-    navigate("/Login");
+    navigate("/Admin");
   }
 
 
