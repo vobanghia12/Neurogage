@@ -1,12 +1,14 @@
 import CurrentUser from "./currentUser";
-import { useUsers } from "./hooks/api.hooks";
-
+import { useUsers, useSessions, useEvents } from "./hooks/api.hooks";
+import  CurrentEvent from "./events.js";
 function AdminUI(){
     const users = useUsers();
+    const sessions = useSessions();
+    const events = useEvents();
     return (
         <>
             <h1 className="dashboard-title">
-                Vitals Viewer
+                Vitals Viewer 22233
             </h1>
             <div className = "overall">
                 {users.map((user,i) => {
@@ -19,6 +21,13 @@ function AdminUI(){
                     );
                 })}
             </div>
+            <div class = "overall">{
+            events.map((u, i) => {
+                return (
+                    <CurrentEvent key ={i} timestamp = {u.timeStamp} description = {u.description} />
+                )
+            })
+        }</div>
         </>
     );
 }
