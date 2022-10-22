@@ -1,7 +1,6 @@
 import express from "express";
-import mongoose from "mongoose";
 import { Event } from "./event.model";
-import {Types, model, Schema} from 'mongoose';
+import {Types} from 'mongoose';
 
 
 export const eventRouter = express.Router();
@@ -16,7 +15,7 @@ interface ICreateEvent {
 //retrieve all events
 eventRouter.get("/", async (req, res) => {
     try {
-        const events = await Event.find().exec();
+        const events = await Event.find().sort({ timeStamp: -1 }).exec();
         res.json({ events });
     } catch (error) {
         console.log("could not query all events from db")
@@ -24,10 +23,10 @@ eventRouter.get("/", async (req, res) => {
 });
 
 //retrieve events by userId
-eventRouter.get("/", async (req, res) => {
-    const userId = req.body();
+eventRouter.get("/:userId", async (req, res) => {
+    const userId = req.params.userId;
     try {
-        const events = await Event.find({userId:userId}).exec();
+        const events = await Event.find({userId:userId}).sort({ timeStamp: -1 }).exec();
         res.json({ events });
     } catch (error) {
         console.log("could not query all events from db")
@@ -35,16 +34,20 @@ eventRouter.get("/", async (req, res) => {
 });
 
 //creates and pushed object
-eventRouter.post("/event", async (req, res) => {
+eventRouter.post("/", async (req, res) => {
     try {
-        const { userId, eventId, description } = req.body as ICreateEvent;
-        const newData = new Event({
+        const { userId, description } = req.body as ICreateEvent;
+        const event = new Event({
             userId,
-            eventId,
+            timeStamp: new Date(),
             description
-        })
+        });
 
-        newData.save();
+        console.log(event);
+
+        event.save();
+
+        res.json({ event });
     } catch (error) {
         console.log("couldnt ")
         console.log(error);

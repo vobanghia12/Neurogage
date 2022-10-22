@@ -14,7 +14,7 @@ interface ICreateSession {
 export const sessionRouter = express.Router();
 
 sessionRouter.get("/", async (req, res) => {
-    const sessions = await Session.find().exec();
+    const sessions = await Session.find().sort({ timeStamp: -1 }).exec();
     res.json({ sessions });
 });
 
