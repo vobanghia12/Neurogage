@@ -2,7 +2,7 @@ import { Schema, model, Types } from 'mongoose';
 
 interface ISession {
     userId: Types.ObjectId;
-    timestamp: string;
+    timestamp: Date;
     baseline: number;
     feedback: string;
     name: string;
@@ -14,7 +14,7 @@ interface ISession {
   
 const sessionSchema = new Schema<ISession>({
     userId: { type: Schema.Types.ObjectId, ref: 'users', required: true },
-    timestamp: { type: String, required: true },
+    timestamp: { type: Date, required: true },
     baseline: { type: Number, required: true },
     feedback: { type: String, required: true },
     name: { type: String, required: true },

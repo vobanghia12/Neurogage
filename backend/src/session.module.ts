@@ -29,15 +29,30 @@ sessionRouter.post("/", async (req, res) => {
         lighting,
         sound,
         notes,
-        timestamp: new Date().toString(), 
+        timestamp: new Date(),
         feedback: "No feedback."
     });
 
     session.save((err) => {
         if (err) {
-            res.json({ message: "Error fetching the session" })
+            console.log(err);
+            res.json({ message: "Error creating the session" })
         } else {
             res.json({ session });
         }
     })
+});
+
+
+sessionRouter.get("/baseline/:userid", async (req, res) => {
+    const userId = req.params.userid;
+
+    const sessions = await Session.find({ userId: userId }).sort({ timestamp: -1 }).limit(1).exec();
+
+    if (sessions.length < 1) {
+        res.json({ message: "Not Found" });
+        return;
+    }
+
+    res.json({ baseline: sessions[0].baseline });
 });
