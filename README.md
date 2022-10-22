@@ -1,7 +1,7 @@
 # Team8 
 
 Completing the "Spin the Spectrum" challenge!
-Introducing SpinBuddy!
+Introducing Neurogauge!
 
 SpinBuddy is a web application we built to help Spin the Spectrum and all their program participants better anticipate
 each individuals' emotional needs by monitoring their heart rate. We developed this web app with a lot of funcationality in mind
