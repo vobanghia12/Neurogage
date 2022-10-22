@@ -13,8 +13,8 @@ import React, { useEffect } from "react";
   export default function Home() {
     let navigate = useNavigate();
 
-    function handleSessionSubmit() {
-      navigate("/SessionSubmit");
+    function handleAdminPage() {
+      navigate("/Login");
     }
 
     function handleUserPage() {
@@ -30,7 +30,7 @@ import React, { useEffect } from "react";
           </h1>
           <h1 className="dashboard-title">
             <button
-                  onClick={handleSessionSubmit}
+                  onClick={handleAdminPage}
                   className="btn text-3xl py-4 px-3"
                 >
                   Admin

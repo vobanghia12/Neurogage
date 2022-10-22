@@ -1,7 +1,14 @@
 import React, {useState} from 'react';
+import { useNavigate } from "react-router-dom";
 import "/loginUI.css";
 
 function login() { 
+  //navigate to main admin page after input form submitted
+  let navigate = useNavigate();
+  function handleAdmin(){
+    navigate("/Login");
+  }
+
 
   // Passing in an object to store each input field from the login UI.
   const [input, setInput] = useState({
@@ -23,8 +30,10 @@ function login() {
   */
   const handleSubmit = (e) => {
     e.preventDefault();
+    handleAdmin
     console.log(input);
   }
+
 
   return (
     <body>
