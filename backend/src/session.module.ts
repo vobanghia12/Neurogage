@@ -1,8 +1,9 @@
 import express from "express";
 import { Session } from "./session.model";
+import { User } from "./user.model";
 
 interface ICreateSession {
-    userId: string;
+    userName: string;
     baseline: number;
     name: string;
     location: string;
@@ -19,10 +20,19 @@ sessionRouter.get("/", async (req, res) => {
 });
 
 sessionRouter.post("/", async (req, res) => {
-    const { userId, baseline, name, location, lighting, sound, notes } = req.body as ICreateSession;
+    const { userName, baseline, name, location, lighting, sound, notes } = req.body as ICreateSession;
+
+    const users = await User.find({ name: userName }).exec();
+
+    if (users.length < 1) {
+        res.json({ msg: "bad" });
+        return;
+    }
+
+    const user = users[0];
     
     const session = new Session({ 
-        userId, 
+        userId: user.id,
         baseline, 
         name,
         location,
@@ -59,7 +69,7 @@ sessionRouter.get("/baseline/:userid", async (req, res) => {
 
 
 sessionRouter.get("/baseline/:name", async (req, res) => {
-    const name= req.params.name;
+    const name = req.params.name;
 
     const names = await Session.find({name:name});
 
