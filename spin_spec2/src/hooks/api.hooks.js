@@ -1,19 +1,32 @@
 import axios from "axios";
+import React, { useState, useEffect} from "react";
 
 const URL = "http://localhost:5000";
 
 const config = {
-    withCredentials: true,
+    withCredentials: false,
     baseURL: URL
 };
 
-export const useUsers = () => {
-    const [users, setUsers] = useState([]);
+const useData = (route, field) => {
+    const [data, setData] = useState([]);
 
     useEffect(() => {
-        axios.get("/users", config)
-            .then((r) => setUsers(r.data.users));
+        axios.get(route, config)
+            .then((r) => setData(r.data[field]));
     }, []);
 
-    return users;
+    return data;
+}
+
+export const useUsers = () => {
+    return useData("/users", "users");
+}
+
+export const useSessions = () => {
+    return useData("/sessions", "sessions");
+}
+
+export const useEvents = () => {
+    return useData("/events", "events");
 }

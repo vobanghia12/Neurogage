@@ -4,6 +4,7 @@ import { metricsRouter } from "./metrics.module";
 import { userRouter } from "./user.module";
 import { eventRouter } from "./event.module";
 import { sessionRouter } from "./session.module";
+import cors from "cors";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -12,6 +13,13 @@ const app = express();
 const port = 5000;
 
 app.use(express.json())
+
+const corsOptions = {
+    origin: 'http://localhost:3000',
+    optionsSuccessStatus: 200
+}
+
+app.use(cors(corsOptions));
 
 // connect to database right here
 //admin

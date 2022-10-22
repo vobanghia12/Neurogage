@@ -14,8 +14,8 @@ interface ICreateSession {
 export const sessionRouter = express.Router();
 
 sessionRouter.get("/", async (req, res) => {
-    const session = await Session.find().exec();
-    res.json({ session });
+    const sessions = await Session.find().exec();
+    res.json({ sessions });
 });
 
 sessionRouter.post("/", async (req, res) => {

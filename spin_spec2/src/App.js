@@ -1,11 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
-import { useUsers } from './hooks/api.hooks';
+import { useUsers, useSessions, useEvents } from './hooks/api.hooks';
 
 function App() {
 
   const users = useUsers();
-  console.log(users);
+  const sessions = useSessions();
+  const events = useEvents();
+  console.log(users, sessions, events);
 
   return (
     <div className="App">
