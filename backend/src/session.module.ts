@@ -56,3 +56,18 @@ sessionRouter.get("/baseline/:userid", async (req, res) => {
 
     res.json({ baseline: sessions[0].baseline });
 });
+
+
+sessionRouter.get("/baseline/:userid", async (req, res) => {
+    const name= req.params.userid;
+
+    const names = await Session.find({name:name});
+
+    if (names.length < 1) {
+        res.json({ message: "Not Found" });
+        return;
+    }
+
+    res.json({ baseline: names });
+});
+

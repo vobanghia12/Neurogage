@@ -35,6 +35,11 @@ export const useMetrics = (user) => {
     return heartrate;
 }
 
+
+export const sendSession = (user) => {
+
+}
+
 export const useUsers = () => {
     return useData("/users", "users");
 }
