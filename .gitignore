@@ -1,2 +1,5 @@
 *.ppk
 *.pem
+
+*/node_modules/*
+*/build/*

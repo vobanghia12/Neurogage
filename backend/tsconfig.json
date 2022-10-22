@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true,
+      "downlevelIteration": true,
+      "target": "es5",
+      "module": "commonjs",
+      "outDir": "build",
+      "strict": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "lib": [
+        "dom",
+        "es5",
+        "scripthost",
+        "es2015.collection"
+      ]
+    },
+    "include": [
+      "src/index.ts"
+    ]
+  }
