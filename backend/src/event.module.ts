@@ -1,4 +1,3 @@
-
 import express from "express";
 import mongoose from "mongoose";
 import { Event } from "./event.model";
@@ -16,13 +15,18 @@ interface ICreateEvent {
 
 
 eventRouter.get("/", async (req, res) => {
-    const events = await Event.find().exec();
-    res.json({ events });
+    try {
+        const events = await Event.find().exec();
+        res.json({ events });
+    } catch (error) {
+        console.log("could not query all events from db")
+    }
 });
 
 //creates and pushed object
 eventRouter.post("/event", async (req, res) => {
-    const { userId, eventId, description } = req.body as ICreateEvent;
+    try {
+        const { userId, eventId, description } = req.body as ICreateEvent;
     const newData = new Event({
         userId,
         eventId,
@@ -30,6 +34,11 @@ eventRouter.post("/event", async (req, res) => {
     })
 
     newData.save();
+    } catch (error) {
+        console.log("couldnt ")
+        console.log(error);
+    }
+
 });
 
 function handleError(err: any) {
