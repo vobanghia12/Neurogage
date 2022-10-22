@@ -19,8 +19,9 @@ metricsRouter.get("/:user", async (req, res) => {
     } else {
         // simulate heartrate either increasing or decreasing
         const r = random(0, 4);
-        const amount = r >= 2 ? r - 4 : r; 
-        console.log(amount);
+        console.log("random ", r);
+        const amount = r >= 2 ? r - 4.1 : r; 
+        console.log("amount ", amount);
         metrics[userName] = metrics[userName] + amount;
     }
     res.json({ heartRate: Math.round(metrics[userName] * 100) / 100 });

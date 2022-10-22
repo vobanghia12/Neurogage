@@ -19,6 +19,22 @@ const useData = (route, field) => {
     return data;
 }
 
+// refetches the data every second
+export const useMetrics = (user) => {
+    const [heartrate, setHeartrate] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            axios.get(`/metrics/${user}`, config)
+                .then((r) => setHeartrate(r.data.heartRate));
+        }, 1000);
+
+        return () => clearInterval(interval);
+    }, [user]);
+
+    return heartrate;
+}
+
 export const useUsers = () => {
     return useData("/users", "users");
 }
@@ -33,4 +49,8 @@ export const useEvents = () => {
 
 export async function createSession(userId, baseline, name, location, lighting, sound, notes) {
     return axios.post("/sessions", { userId, baseline, name, location, lighting, sound, notes }, config);
+}
+
+export async function createEvent(userId, eventId, description) {
+    return axios.post("/sessions", { userId, eventId, description }, config);
 }
