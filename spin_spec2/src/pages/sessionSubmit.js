@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { createSession } from "./hooks/api.hooks";
+import { createSession } from "../hooks/api.hooks";
 
 export function SessionSubmit() { 
 
