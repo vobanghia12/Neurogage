@@ -67,8 +67,8 @@ function CurrentUser(props){
             borderWidth: 1,
             borderStyle: "solid",
               fontSize: 16,
-            width: "200px",
-            height: "200px",
+            width: "500px",
+            height: "500px",
             borderRadius: "4px",
           }}
         >
@@ -76,7 +76,7 @@ function CurrentUser(props){
             <p>{props.isOnline}</p>
             <p>Heart Rate: {heartRate}</p>
             <p>Base Line: {baseline}</p>
-            {(heartRate - baseline > 10) ? 
+            {(heartRate - baseline > 25) ?
               <p className = "p10"> Melt down <MdOutlineVerifiedUser/></p>
               :
               <p style={{ color: "yellow" }}> Normal </p>
