@@ -9,7 +9,7 @@ interface ICreateOauth {
 
 export const oauthRouter = express.Router();
 
-oauthRouter.get("/signin", async (req, res) => {
+oauthRouter.post("/signin", async (req, res) => {
     const { username, password} = req.body as ICreateOauth;
     try {
         const usernames = await Oauth.find({username:username}).exec();

@@ -1,13 +1,14 @@
-import CurrentUser from "./currentUser";
-import { useUsers, useSessions, useEvents } from "./hooks/api.hooks";
-import  CurrentEvent from "./events.js";
+import CurrentUser from "../currentUser";
+import { useUsers, useEvents } from "../hooks/api.hooks";
+import  CurrentEvent from "../events.js";
+import "../app12.css";
 
-function AdminUI(){
+function Admin(){
     const users = useUsers();
     const events = useEvents();
 
     return (
-        <div className = "admin-ui">
+        <div className = "admin">
             <h1 className="dashboard-title">
                 Vitals Viewer
             </h1>
@@ -33,4 +34,4 @@ function AdminUI(){
         </div>
     );
 }
-export default AdminUI
+export default Admin
