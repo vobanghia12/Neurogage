@@ -6,7 +6,8 @@ import Home from "./pages/Home";
 import Admin from "./pages/Admin";
 import NoPage from "./pages/NoPage";
 import SessionSubmit from "./pages/sessionSubmit"
-import Login from "./pages/login"
+import Login from "./pages/Login"
+import User from "./pages/User"
 import "./app12.css";
 import User from "./pages/User";
 

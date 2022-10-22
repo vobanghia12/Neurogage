@@ -12,13 +12,13 @@ h1 {
 }
 h2 {
     text-align: left;
-    margin-left: 13rem;
+    margin-left: 36.5rem;
     margin-bottom: 0;
 }
 
 /* Input fields */
 input[type = text] {
-    width: 50%;
+    width: 25%;
     padding: 12px 20px;
     margin: 8px 0;
     margin-bottom: 20px;
@@ -40,7 +40,7 @@ input[type = text] {
     margin-top: 15px;
     margin-bottom: 50px;
     margin: 6px;
-    width: 24%;
+    width: 12%;
 }
 .btn:hover {
     background: rgba(47, 48, 97, 80%);
