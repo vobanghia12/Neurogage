@@ -14,10 +14,19 @@ oauthRouter.get("/:username", async (req, res) => {
         const usernames = await Oauth.find({username:username}).exec();
         res.json({ usernames });
     } catch (error) {
-        console.log("could not query all events from db")
+        console.log("could not query usernames from db")
     }
 });
 
+oauthRouter.get("/:password", async (req, res) => {
+    const password = req.params.password;
+    try {
+        const passwords = await Oauth.find({password:password}).exec();
+        res.json({ passwords });
+    } catch (error) {
+        console.log("could not query passwords from db")
+    }
+});
 
 oauthRouter.post("/", async (req, res) => {
     const { username, password} = req.body as ICreateOauth;
