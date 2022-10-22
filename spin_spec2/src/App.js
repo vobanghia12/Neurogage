@@ -9,7 +9,6 @@ import SessionSubmit from "./pages/sessionSubmit"
 import Login from "./pages/Login"
 import User from "./pages/User"
 import "./app12.css";
-import User from "./pages/User";
 
 function App() {
 

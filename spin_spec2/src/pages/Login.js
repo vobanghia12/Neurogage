@@ -40,7 +40,7 @@ function Login() {
 
   return (
     <body>
-      <form onSubmit = {(handleAdm)}>
+      <form onSubmit = {handleSubmit}>
         <h1>Admin Login</h1>
         <h2>Username</h2>
         <input type = 'text' name = 'userName' onChange = {handleInput}/>
