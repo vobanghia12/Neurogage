@@ -15,9 +15,17 @@
     justify-content: center;
     align-items: center;
 }
+
+h2 {
+    text-align: center;
+}
 h4{
     text-align: center;
 }
 p{
     text-align: center;
+}
+
+.admin-ui {
+    margin-bottom: 200px;
 }
