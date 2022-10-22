@@ -11,4 +11,4 @@ const oauthSchema = new Schema<IAuthenticate>({
 });
 
   
-export const Event = model<IAuthenticate>("IAuthenticate", oauthSchema);
+export const Oauth = model<IAuthenticate>("IAuthenticate", oauthSchema);
