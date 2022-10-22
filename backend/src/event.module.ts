@@ -1,9 +1,9 @@
 import express from "express";
 import { Event } from "./event.model";
 
-export const userRouter = express.Router();
+export const eventRouter = express.Router();
 
-userRouter.get("/", async (req, res) => {
-    const users = await Event.find().exec();
-    res.json({ users });
+eventRouter.get("/", async (req, res) => {
+    const events = await Event.find().exec();
+    res.json({ events });
 });

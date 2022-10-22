@@ -8,7 +8,6 @@ interface ISession {
 
 interface IUser {
     name: string;
-    
     isOnline: boolean;
     sessions: ISession[];
 }
