@@ -6,7 +6,7 @@ function AdminUI(){
     return (
         <>
             <h1 className="dashboard-title">
-                Vitals Viewer
+                Vitals Viewer 222
             </h1>
             <div className = "overall">
                 {users.map((user,i) => {
