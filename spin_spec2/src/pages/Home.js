@@ -11,23 +11,37 @@ import React, { useEffect } from "react";
   
 
   export default function Home() {
-    // function handleAdmin() {
-    //   navigate("/Admin");
-    // }
+    let navigate = useNavigate();
+
+    function handleSessionSubmit() {
+      navigate("/SessionSubmit");
+    }
+
+    function handleUserPage() {
+      navigate("/User");
+    }
+
+    
     return (
       <div className = "admin">
           <h1 className="dashboard-title">
               Welcome!
               Are You a user or Admin
           </h1>
-          {/* <h1 className="dashboard-title">
+          <h1 className="dashboard-title">
             <button
-                  onClick={handleAdmin}
+                  onClick={handleSessionSubmit}
                   className="btn text-3xl py-4 px-3"
                 >
-                  Juror
-            button </button>
-          </h1> */}
+                  Admin
+             </button>
+             <button
+                  onClick={handleUserPage}
+                  className="btn text-3xl py-4 px-3"
+                >
+                  User
+             </button>
+          </h1>
       </div>
   );
   

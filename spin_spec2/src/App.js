@@ -17,9 +17,9 @@ function App() {
 
   return (
       <Routes>
-          <Route path="admin" element={<Admin />} />
-          <Route path="user" element={<User />} />
-          <Route path="sessionSubmit" element={<SessionSubmit />} />
+          <Route path="/Admin" element={<Admin />} />
+          <Route path="/User" element={<User />} />
+          <Route path="/SessionSubmit" element={<SessionSubmit />} />
           <Route path="*" element={<NoPage />} />
           <Route path="/" element={<Home />} />
       </Routes>
