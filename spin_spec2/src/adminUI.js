@@ -9,7 +9,7 @@ function AdminUI(){
     return (
         <div className = "admin-ui">
             <h1 className="dashboard-title">
-                Vitals Viewer
+                Vitals Viewer 2
             </h1>
             <div className = "overall">
                 {users.map((user,i) => {
