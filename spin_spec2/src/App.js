@@ -1,7 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
+import { useUsers } from './hooks/api.hooks';
 
 function App() {
+
+  const users = useUsers();
+  console.log(users);
+
   return (
     <div className="App">
       <header className="App-header">

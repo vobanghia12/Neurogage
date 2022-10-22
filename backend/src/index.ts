@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import { metricsRouter } from "./metrics.module";
 import { userRouter } from "./user.module";
 import { eventRouter } from "./event.module";
+import { sessionRouter } from "./session.module";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -24,6 +25,7 @@ mongoose.connect(CONNECTION_STRING)
 app.use("/metrics", metricsRouter);
 app.use("/users", userRouter);
 app.use("/events", eventRouter);
+app.use("/sessions", sessionRouter)
 
 app.get("/", (req, res) => res.json({ test: "Hello World" }));
 
