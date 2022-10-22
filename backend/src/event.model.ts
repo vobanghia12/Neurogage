@@ -16,4 +16,4 @@ const userSchema = new Schema<IEvent>({
     
 });
   
-export const Event = model<IEvent>("users", userSchema);
+export const Event = model<IEvent>("events", userSchema);
