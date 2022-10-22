@@ -1,5 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
+import AdminUI from './adminUI'; 
+import './app12.css';
+function App() {
 import { useUsers, useSessions, useEvents, useMetrics } from './hooks/api.hooks';
 
 function App() {
@@ -11,23 +14,13 @@ function App() {
   console.log(users, sessions, events, heartrate);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div class = "common-background">
+      <h1>Dashboard</h1>
+      <AdminUI></AdminUI>
     </div>
+    
   );
 }
 
 export default App;
+
